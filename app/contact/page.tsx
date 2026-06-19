@@ -1,5 +1,6 @@
 import { getTranslations } from "next-intl/server";
 import { PixelIcon } from "@/src/components/icons/PixelIcon";
+import { BrutalistSection } from "@/src/components/ui/BrutalistSection";
 
 export default async function ContactPage() {
   const t = await getTranslations("contact");
@@ -19,7 +20,8 @@ export default async function ContactPage() {
       </section>
 
       {/* Contact Form */}
-      <section className="md:col-span-2 xl:col-span-8 bg-surface border-2 border-border-main flex flex-col">
+      <BrutalistSection className="md:col-span-2 xl:col-span-8">
+      <section className="bg-surface border-2 border-border-main flex flex-col h-full">
         <div className="h-8 bg-surface-container-high border-b-2 border-border-main flex items-center justify-between px-4 shrink-0">
           <div className="flex items-center gap-2">
             <svg className="w-4 h-4 text-primary" viewBox="0 0 24 24" fill="none"><path d="M2 4H22V20H2V4ZM4 6V18H20V6H4ZM6 8H8V10H6V8ZM9 11H11V13H9V11ZM6 14H8V16H6V14ZM12 14H18V16H12V14Z" fill="currentColor"/></svg>
@@ -65,9 +67,11 @@ export default async function ContactPage() {
           </div>
         </div>
       </section>
+      </BrutalistSection>
 
       {/* Sidebar - Status & Socials */}
-      <section className="md:col-span-2 xl:col-span-4 bg-surface border-2 border-border-main flex flex-col">
+      <BrutalistSection className="md:col-span-2 xl:col-span-4">
+      <section className="bg-surface border-2 border-border-main flex flex-col h-full">
         {/* Status Card */}
         <div>
           <div className="h-8 bg-surface-container-high border-b-2 border-border-main flex items-center px-4">
@@ -97,11 +101,11 @@ export default async function ContactPage() {
         <div className="border-t-2 border-border-main p-6">
           <h4 className="font-label-mono text-label-mono text-terminal-gray mb-4 uppercase">Connect</h4>
           <div className="grid grid-cols-2 gap-3">
-            <a className="bg-surface-elevated border-2 border-border-main p-4 flex flex-col items-center gap-2 hover:bg-primary hover:text-on-primary-container hover:border-black transition-all press-down" href="https://github.com/your-username" target="_blank" rel="noopener noreferrer">
+            <a className="bg-surface-elevated border-2 border-border-main p-4 flex flex-col items-center gap-2 hover:bg-primary hover:text-on-primary-container hover:border-black transition-all press-down" href="https://github.com/A-Rahiym" target="_blank" rel="noopener noreferrer">
               <PixelIcon name="github" size={24} />
               <span className="font-label-mono text-[10px]">GitHub</span>
             </a>
-            <a className="bg-surface-elevated border-2 border-border-main p-4 flex flex-col items-center gap-2 hover:bg-primary hover:text-on-primary-container hover:border-black transition-all press-down" href="https://linkedin.com/in/your-profile" target="_blank" rel="noopener noreferrer">
+            <a className="bg-surface-elevated border-2 border-border-main p-4 flex flex-col items-center gap-2 hover:bg-primary hover:text-on-primary-container hover:border-black transition-all press-down" href="https://www.linkedin.com/in/a-rahiym" target="_blank" rel="noopener noreferrer">
               <PixelIcon name="linkedin" size={24} />
               <span className="font-label-mono text-[10px]">LinkedIn</span>
             </a>
@@ -109,7 +113,7 @@ export default async function ContactPage() {
               <PixelIcon name="contact" size={24} />
               <span className="font-label-mono text-[10px]">Email</span>
             </a>
-            <a className="bg-surface-elevated border-2 border-border-main p-4 flex flex-col items-center gap-2 hover:bg-primary hover:text-on-primary-container hover:border-black transition-all press-down" href="https://github.com/your-username" target="_blank" rel="noopener noreferrer">
+            <a className="bg-surface-elevated border-2 border-border-main p-4 flex flex-col items-center gap-2 hover:bg-primary hover:text-on-primary-container hover:border-black transition-all press-down" href="https://github.com/A-Rahiym" target="_blank" rel="noopener noreferrer">
               <PixelIcon name="external" size={24} />
               <span className="font-label-mono text-[10px]">Dev.to</span>
             </a>
@@ -124,6 +128,7 @@ export default async function ContactPage() {
           </div>
         </div>
       </section>
+      </BrutalistSection>
       </div>
     </main>
   );

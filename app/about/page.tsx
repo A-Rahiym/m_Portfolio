@@ -4,6 +4,7 @@ import { BrutalistSection } from "@/src/components/ui/BrutalistSection";
 
 export default async function AboutPage() {
   const t = await getTranslations("about");
+  const home = await getTranslations("home");
 
   return (
     <main className="grow md:ml-70 mt-16 md:mt-0 p-6 overflow-y-auto h-full">
@@ -110,6 +111,23 @@ export default async function AboutPage() {
               </div>
               <h4 className="font-headline-lg-mobile text-headline-lg-mobile text-white mb-3">{t("compArchTitle")}</h4>
               <p className="text-body-md text-sm text-on-surface-variant">{t("compArchDesc")}</p>
+            </div>
+          </div>
+        </section>
+      </BrutalistSection>
+
+      <BrutalistSection className="md:col-span-2 xl:col-span-12">
+        <section className="bg-surface border-2 border-border-main flex flex-col h-full">
+          <div className="h-6 bg-surface-container-high border-b-2 border-border-main flex items-center px-4 shrink-0">
+            <span className="font-label-mono text-label-mono text-terminal-gray">TOOL_PROFICIENCY</span>
+          </div>
+          <div className="p-4 md:p-6 flex flex-col justify-center flex-1">
+            <div className="flex flex-wrap gap-2">
+              {home.raw("proficiencySkills").map((skill: string) => (
+                <span key={skill} className="px-3 py-1.5 border border-border-main font-label-mono text-[11px] text-primary bg-surface-container hover:bg-primary hover:text-on-primary-container hover:border-primary transition-colors">
+                  {skill}
+                </span>
+              ))}
             </div>
           </div>
         </section>

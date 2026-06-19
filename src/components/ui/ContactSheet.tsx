@@ -34,10 +34,10 @@ export function ContactSheet({ heading, email }: ContactSheetProps) {
           <a className="w-10 h-10 border-2 border-primary flex items-center justify-center hover:bg-primary hover:text-surface transition-all press-down" href={`mailto:${email}`}>
             <PixelIcon name="contact" size={16} />
           </a>
-          <a className="w-10 h-10 border-2 border-primary flex items-center justify-center hover:bg-primary hover:text-surface transition-all press-down" href="https://github.com/your-username" target="_blank" rel="noopener noreferrer">
+          <a className="w-10 h-10 border-2 border-primary flex items-center justify-center hover:bg-primary hover:text-surface transition-all press-down" href="https://github.com/A-Rahiym" target="_blank" rel="noopener noreferrer">
             <PixelIcon name="github" size={16} />
           </a>
-          <a className="w-10 h-10 border-2 border-primary flex items-center justify-center hover:bg-primary hover:text-surface transition-all press-down" href="https://linkedin.com/in/your-profile" target="_blank" rel="noopener noreferrer">
+          <a className="w-10 h-10 border-2 border-primary flex items-center justify-center hover:bg-primary hover:text-surface transition-all press-down" href="https://www.linkedin.com/in/a-rahiym" target="_blank" rel="noopener noreferrer">
             <PixelIcon name="linkedin" size={16} />
           </a>
         </div>
@@ -68,7 +68,7 @@ export function ContactSheet({ heading, email }: ContactSheetProps) {
               </a>
               <a
                 className="flex-1 flex items-center justify-center gap-3 border-2 border-primary py-4 hover:bg-primary hover:text-surface transition-all press-down"
-                href="https://github.com/your-username"
+                href="https://github.com/A-Rahiym"
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => setOpen(false)}
@@ -78,7 +78,7 @@ export function ContactSheet({ heading, email }: ContactSheetProps) {
               </a>
               <a
                 className="flex-1 flex items-center justify-center gap-3 border-2 border-primary py-4 hover:bg-primary hover:text-surface transition-all press-down"
-                href="https://linkedin.com/in/your-profile"
+                href="https://www.linkedin.com/in/a-rahiym"
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => setOpen(false)}

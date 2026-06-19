@@ -29,7 +29,7 @@ export function ProjectGrid() {
           </button>
         ))}
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-10">
+      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 md:gap-8 xl:gap-10">
         {filtered.map((project) => (
           <ProjectCard key={project.id} project={project} />
         ))}

@@ -1,11 +1,10 @@
 import { PixelIcon } from "@/src/components/icons/PixelIcon";
+import { shadowColors } from "@/src/data/shadowColors";
 import type { Project } from "@/src/data/projects";
 
 interface ProjectCardProps {
   project: Project;
 }
-
-const shadowColors = ["#32E6E2", "#5A8CFF", "#FF6B6B", "#FFD93D", "#C084FC", "#F97316", "#2DD4BF", "#FB923C"];
 
 export function ProjectCard({ project }: ProjectCardProps) {
   const idx = project.id.length % shadowColors.length;
@@ -23,20 +22,30 @@ export function ProjectCard({ project }: ProjectCardProps) {
             <div className="w-2 h-2 rounded-full bg-border-main" />
           </div>
         </div>
-        <div className="p-6 flex flex-col flex-1">
-          <div className="flex justify-between items-start mb-4">
-            <span className="text-primary font-label-mono text-[12px] border border-primary px-2 py-0.5">
-              {project.category}
-            </span>
-            <PixelIcon name={project.icon} size={24} />
+        <div className="p-4 md:p-6 flex flex-col flex-1">
+          <div className="flex justify-between items-start gap-3 mb-4">
+            <div className="flex items-center gap-2 flex-wrap min-w-0">
+              <span className="text-primary font-label-mono text-[11px] md:text-[12px] border border-primary px-2 py-0.5">
+                {project.category}
+              </span>
+              {project.status && (
+                <span className="flex items-center gap-1 font-label-mono text-[9px] md:text-[10px] text-terminal-gray bg-surface-elevated border border-border-main px-2 py-0.5">
+                  <span className="w-1.5 h-1.5 bg-primary rounded-full animate-pulse" />
+                  {project.status}
+                </span>
+              )}
+            </div>
+            <div className="w-8 h-8 md:w-10 md:h-10 border-2 border-primary bg-surface-container flex items-center justify-center shrink-0">
+              <PixelIcon name={project.icon} size={16} />
+            </div>
           </div>
           <h3 className="font-headline-lg text-headline-lg text-white mb-2 tracking-tight">
             {project.title}
           </h3>
-          <p className="font-body-md text-body-md text-terminal-gray mb-6 text-sm leading-relaxed flex-1">
+          <p className="font-body-md text-body-md text-terminal-gray mb-4 md:mb-6 leading-[1.8] flex-1 line-clamp-3 lg:line-clamp-none">
             {project.description}
           </p>
-          <div className="flex flex-wrap gap-2 mb-6">
+          <div className="flex flex-wrap gap-1.5 md:gap-2 mb-4 md:mb-6">
             {project.tags.map((tag) => (
               <span
                 key={tag}
