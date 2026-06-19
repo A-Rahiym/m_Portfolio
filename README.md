@@ -1,36 +1,72 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Portfolio — Abdulrahman Abdulrahim
 
-## Getting Started
+Personal portfolio built with Next.js 16, TypeScript, and Tailwind CSS v4. Features a neo-brutalist design with a grid dashboard layout, pixel art icons, MDX blog, and a filterable project showcase spanning web apps, mobile apps, and AI/ML models.
 
-First, run the development server:
+## Stack
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- **Framework:** Next.js 16 (App Router)
+- **Language:** TypeScript
+- **Styling:** Tailwind CSS v4
+- **Icons:** pxlkit (pixel art icon system)
+- **Internationalization:** next-intl v4
+- **Content:** MDX (blog posts)
+- **Package Manager:** pnpm
+
+## Structure
+
+```
+app/                        # Next.js App Router pages
+├── about/                  # CV / about page
+├── blog/                   # Blog list + [slug] detail
+├── contact/                # Contact form page
+├── projects/               # Project list + [slug] detail
+├── layout.tsx              # Root layout (sidebar + grid)
+└── page.tsx                # Home dashboard
+
+src/
+├── components/
+│   ├── icons/
+│   │   ├── PixelIcon.tsx           # Icon component
+│   │   └── data/                   # Icon definitions by category
+│   │       ├── navigation.ts       # Nav icons (home, projects, blog, etc.)
+│   │       ├── projects.ts         # Project icons (cart, medical, globe, etc.)
+│   │       └── social.ts           # Social icons (github, linkedin)
+│   ├── layout/                     # Sidebar, DashboardGrid
+│   └── ui/                         # BrutalistSection, ProjectCard, Button, etc.
+├── data/
+│   └── projects.ts                 # Project data + filters
+└── features/
+    └── game/
+        └── SnakeGame.tsx           # Canvas snake game widget
+
+content/                    # MDX blog posts
+html/                       # HTML references (design comps)
+messages/                   # next-intl translation strings (en.json)
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Pages
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+| Page | Route | Description |
+|------|-------|-------------|
+| Home | `/` | Dashboard grid with profile, "Currently" tile, snake game, blog preview, proficiency, contact |
+| Projects | `/projects` | Filterable grid (ALL / WEB APPS / MOBILE / AI) with project cards |
+| Blog | `/blog` | Blog post list with terminal-style entries |
+| About | `/about` | CV: experience, education, skills, credentials |
+| Contact | `/contact` | Contact form with status card and social links |
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Design
 
-## Learn More
+- **Neo-brutalist:** Press-down interactions, hover-reveal shadow colors, thick borders
+- **Grid dashboard:** 12-column / 6-row at xl, 2-column auto-rows at md, single column at mobile
+- **Sidebar:** Fixed 280px desktop sidebar, collapsible drawer on mobile
+- **Typography:** VT323 for headings, IBM Plex Sans for body/labels
+- **Color:** Dark theme with teal primary (`#32E6E2`), nav-active state (`#2DD4BF`)
 
-To learn more about Next.js, take a look at the following resources:
+## Running
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+pnpm install
+pnpm dev       # http://localhost:3000
+pnpm build     # Production build
+pnpm lint      # ESLint
+```
