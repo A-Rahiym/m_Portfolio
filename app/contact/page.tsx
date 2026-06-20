@@ -1,5 +1,6 @@
 import { getTranslations } from "next-intl/server";
 import { PixelIcon } from "@/src/components/icons/PixelIcon";
+import Link from "next/link";
 import { BrutalistSection } from "@/src/components/ui/BrutalistSection";
 
 export default async function ContactPage() {
@@ -101,22 +102,19 @@ export default async function ContactPage() {
         <div className="border-t-2 border-border-main p-6">
           <h4 className="font-label-mono text-label-mono text-terminal-gray mb-4 uppercase">Connect</h4>
           <div className="grid grid-cols-2 gap-3">
-            <a className="bg-surface-elevated border-2 border-border-main p-4 flex flex-col items-center gap-2 hover:bg-primary hover:text-on-primary-container hover:border-black transition-all press-down" href="https://github.com/A-Rahiym" target="_blank" rel="noopener noreferrer">
+            <Link className="bg-surface-elevated border-2 border-border-main p-4 flex flex-col items-center gap-2 hover:bg-primary hover:text-on-primary-container hover:border-black transition-all press-down" href="https://github.com/A-Rahiym" target="_blank" rel="noopener noreferrer">
               <PixelIcon name="github" size={24} />
               <span className="font-label-mono text-[10px]">GitHub</span>
-            </a>
-            <a className="bg-surface-elevated border-2 border-border-main p-4 flex flex-col items-center gap-2 hover:bg-primary hover:text-on-primary-container hover:border-black transition-all press-down" href="https://www.linkedin.com/in/a-rahiym" target="_blank" rel="noopener noreferrer">
+            </Link>
+            <Link className="bg-surface-elevated border-2 border-border-main p-4 flex flex-col items-center gap-2 hover:bg-primary hover:text-on-primary-container hover:border-black transition-all press-down" href="https://www.linkedin.com/in/a-rahiym" target="_blank" rel="noopener noreferrer">
               <PixelIcon name="linkedin" size={24} />
               <span className="font-label-mono text-[10px]">LinkedIn</span>
-            </a>
-            <a className="bg-surface-elevated border-2 border-border-main p-4 flex flex-col items-center gap-2 hover:bg-primary hover:text-on-primary-container hover:border-black transition-all press-down" href={`mailto:${home("contactEmail")}`}>
+            </Link>
+            <Link className="bg-surface-elevated border-2 border-border-main p-4 flex flex-col items-center gap-2 hover:bg-primary hover:text-on-primary-container hover:border-black transition-all press-down" href={`mailto:${home("contactEmail")}`} target="_blank" rel="noopener noreferrer"  >
               <PixelIcon name="contact" size={24} />
               <span className="font-label-mono text-[10px]">Email</span>
-            </a>
-            <a className="bg-surface-elevated border-2 border-border-main p-4 flex flex-col items-center gap-2 hover:bg-primary hover:text-on-primary-container hover:border-black transition-all press-down" href="https://github.com/A-Rahiym" target="_blank" rel="noopener noreferrer">
-              <PixelIcon name="external" size={24} />
-              <span className="font-label-mono text-[10px]">Dev.to</span>
-            </a>
+            </Link>
+            
           </div>
         </div>
         {/* Terminal */}

@@ -21,10 +21,11 @@ export default async function HomePage() {
                 <p className="font-body-md text-body-md max-w-xl text-on-surface-variant leading-relaxed">{t("heroDescription")}</p>
                 <div className="flex flex-wrap gap-4 pt-2">
                   <Link
-                    href="/contact"
-                    className="inline-flex items-center gap-2 bg-primary text-on-primary-container px-5 py-2.5 font-label-mono text-label-mono border-2 border-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:brightness-110 active:translate-x-[2px] active:translate-y-[2px] active:shadow-none transition-all"
+                   href="https://drive.google.com/file/d/1O6veygwvw6tW21_Tsc0uUv4GnD8YGYKQ/view?usp=sharing"
+                   target="_blank" 
+                   className="inline-flex items-center gap-2 bg-primary text-on-primary-container px-5 py-2.5 font-label-mono text-label-mono border-2 border-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:brightness-110 active:translate-x-[2px] active:translate-y-[2px] active:shadow-none transition-all"
                   >
-                    {t("requestSession")}
+                    Resume
                     <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M7 17L17 7M17 7H7M17 7V17" /></svg>
                   </Link>
                   <Link
