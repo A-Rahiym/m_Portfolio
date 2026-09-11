@@ -3,6 +3,7 @@ import { IBM_Plex_Sans, VT323 } from "next/font/google";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
 import { Sidebar } from "@/src/components/layout/Sidebar";
+import { SnowBackground } from "@/src/components/ui/SnowBackground";
 import { FloatingContactButton } from "@/src/components/ui/FloatingContactButton";
 import { Providers } from "@/src/app/providers";
 import "./globals.css";
@@ -49,6 +50,7 @@ export default async function RootLayout({
       <body className="h-screen flex flex-col md:flex-row overflow-hidden pixel-grid font-sans">
         <NextIntlClientProvider messages={messages}>
           <Providers>
+            <SnowBackground />
             <Sidebar />
             {children}
             <FloatingContactButton />
