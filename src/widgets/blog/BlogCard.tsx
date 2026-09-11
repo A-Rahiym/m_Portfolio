@@ -1,25 +1,29 @@
 import Link from "next/link";
 import type { BlogPost } from "@/src/entities/blog/types";
-import { getShadowColor } from "@/src/data/shadowColors";
-import { useTheme } from "@/src/app/providers";
+import { shadowColors, shadowColorsLight } from "@/src/data/shadowColors";
 
 interface BlogCardProps {
   post: BlogPost;
   index: number;
 }
 
+const SHADOW_STYLE = {
+  transform: "translate(6px, 6px)",
+} as React.CSSProperties;
+
 export function BlogCard({ post, index }: BlogCardProps) {
-  const { theme } = useTheme();
-  const color = getShadowColor(index, theme);
+  const darkShadow = shadowColors[index % shadowColors.length];
+  const lightShadow = shadowColorsLight[index % shadowColorsLight.length];
 
   return (
     <article className="group relative press-down">
       <div
-        className="absolute inset-0 -z-10 transition-all duration-200"
-        style={{
-          backgroundColor: color,
-          transform: "translate(6px, 6px)",
-        }}
+        className="absolute inset-0 -z-10 transition-all duration-200 hidden dark:block"
+        style={{ ...SHADOW_STYLE, backgroundColor: darkShadow }}
+      />
+      <div
+        className="absolute inset-0 -z-10 transition-all duration-200 dark:hidden"
+        style={{ ...SHADOW_STYLE, backgroundColor: lightShadow }}
       />
       <div className="bg-surface border-2 border-black p-4 md:p-6 relative overflow-hidden">
         <div className="flex flex-col gap-4">

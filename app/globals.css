@@ -1,5 +1,8 @@
 @import "tailwindcss";
 
+/* `dark:` tracks our data-theme switch, not the OS preference. */
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
 /* Theme values: dark defaults, light overrides.
    Utilities (bg-surface, text-primary, ...) resolve via var() so
    toggling [data-theme] on <html> flips the whole UI without FOUC. */

@@ -2,8 +2,6 @@
 
 import Link from "next/link";
 import { useTranslations } from "next-intl";
-import { useTheme } from "@/src/app/providers";
-import { themeOnPrimary } from "@/src/data/themeColors";
 import { PixelIcon } from "@/src/components/icons/PixelIcon";
 
 interface NavItemProps {
@@ -16,7 +14,6 @@ interface NavItemProps {
 
 export function NavItem({ href, label, icon, active, onClick }: NavItemProps) {
   const t = useTranslations();
-  const { theme } = useTheme();
 
   return (
     <Link
@@ -28,7 +25,7 @@ export function NavItem({ href, label, icon, active, onClick }: NavItemProps) {
           : "text-on-surface-variant hover:text-primary hover:bg-surface-container"
       }`}
     >
-      <PixelIcon name={icon} size={24} color={active ? themeOnPrimary[theme] : undefined} />
+      <PixelIcon name={icon} size={24} />
       <span className="font-label-mono text-label-mono uppercase tracking-widest">
         {t(label)}
       </span>

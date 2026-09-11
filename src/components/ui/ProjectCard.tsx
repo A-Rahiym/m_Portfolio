@@ -1,16 +1,17 @@
 import { PixelIcon } from "@/src/components/icons/PixelIcon";
-import { getShadowColor } from "@/src/data/shadowColors";
-import { useTheme } from "@/src/app/providers";
+import { shadowColors, shadowColorsLight } from "@/src/data/shadowColors";
 import type { Project } from "@/src/data/projects";
 
 interface ProjectCardProps {
   project: Project;
 }
 
+const SHADOW_BASE = "brutalist-card-shadow opacity-0 group-hover:opacity-100";
+
 export function ProjectCard({ project }: ProjectCardProps) {
-  const { theme } = useTheme();
   const idx = project.id.length % 8;
-  const shadowColor = getShadowColor(idx, theme);
+  const darkShadow = shadowColors[idx % shadowColors.length];
+  const lightShadow = shadowColorsLight[idx % shadowColorsLight.length];
 
   return (
     <div className="relative group cursor-pointer">
@@ -84,9 +85,16 @@ export function ProjectCard({ project }: ProjectCardProps) {
         </div>
       </div>
       <div
-        className="brutalist-card-shadow opacity-0 group-hover:opacity-100"
+        className={`${SHADOW_BASE} hidden dark:block`}
         style={{
-          backgroundColor: shadowColor,
+          backgroundColor: darkShadow,
+          transition: "opacity 0.2s ease",
+        } as React.CSSProperties}
+      />
+      <div
+        className={`${SHADOW_BASE} dark:hidden`}
+        style={{
+          backgroundColor: lightShadow,
           transition: "opacity 0.2s ease",
         } as React.CSSProperties}
       />

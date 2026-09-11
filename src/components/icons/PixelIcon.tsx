@@ -1,8 +1,4 @@
-"use client";
-
 import { PxlKitIcon } from "@pxlkit/core";
-import { useTheme } from "@/src/app/providers";
-import { themePrimary } from "@/src/data/themeColors";
 import { iconMap } from "./data";
 
 interface PixelIconProps {
@@ -13,7 +9,6 @@ interface PixelIconProps {
 }
 
 export function PixelIcon({ name, size = 24, className, color }: PixelIconProps) {
-  const { theme } = useTheme();
   const iconData = iconMap[name];
 
   if (!iconData) {
@@ -21,21 +16,17 @@ export function PixelIcon({ name, size = 24, className, color }: PixelIconProps)
     return null;
   }
 
-  // Explicit prop wins; otherwise follow the active theme so icons
-  // never get stuck on the baked-in palette colors.
-  const resolved = color ?? themePrimary[theme];
-  // Multi-tone artwork (e.g. the `user` icon) keeps its shading via
-  // tint; single-color glyphs flatten to the resolved color.
-  const appearance =
-    Object.keys(iconData.palette).length > 1 ? ("tinted" as const) : ("solid" as const);
-
+  // Without an explicit color the icon inherits the surrounding text color
+  // (solid falls back to currentColor), which the theme utilities already
+  // flip via [data-theme] — so icons never need a JS theme read and this
+  // component stays server-renderable.
   return (
     <PxlKitIcon
       icon={iconData}
       size={size}
       className={className}
-      appearance={appearance}
-      color={resolved}
+      appearance="solid"
+      {...(color ? { color } : {})}
     />
   );
 }

@@ -19,8 +19,3 @@ export const shadowColorsLight = [
   "#15803D",
   "#DC2626",
 ];
-
-export function getShadowColor(index: number, theme: string): string {
-  const palette = theme === "light" ? shadowColorsLight : shadowColors;
-  return palette[index % palette.length];
-}
