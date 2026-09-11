@@ -6,6 +6,7 @@ import { useTranslations } from "next-intl";
 import { NavItem } from "@/src/components/layout/NavItem";
 import { MobileMenu } from "@/src/components/layout/MobileMenu";
 import { UserProfile } from "@/src/components/layout/UserProfile";
+import { ThemeToggle } from "@/src/components/ui/ThemeToggle";
 
 const navItems = [
   { href: "/", label: "nav.home", icon: "home" },
@@ -31,7 +32,10 @@ export function Sidebar() {
         <span className="font-headline-lg-mobile text-headline-lg-mobile font-black text-primary">
           ROOT_ACCESS
         </span>
-        <MobileMenu navItems={navItems} isActive={isActive} />
+        <div className="flex items-center gap-2">
+          <ThemeToggle />
+          <MobileMenu navItems={navItems} isActive={isActive} />
+        </div>
       </header>
 
       {/* Desktop Sidebar */}
@@ -67,6 +71,9 @@ export function Sidebar() {
           ))}
         </div>
 
+        <div className="px-8 pb-4">
+          <ThemeToggle className="w-full justify-center" />
+        </div>
         <UserProfile />
       </nav>
     </>
