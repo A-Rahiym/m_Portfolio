@@ -1,14 +1,28 @@
 "use client";
 
+import dynamic from "next/dynamic";
 import { useEffect, useState } from "react";
 import { useTheme } from "@/src/app/providers";
-import PixelSnow from "./pixelSnow";
+
+// Split three.js out of the initial bundle; the chunk only loads when the
+// snow layer actually renders (desktop viewports without reduced motion).
+const PixelSnow = dynamic(() => import("./pixelSnow"), { ssr: false });
+
+// Matches Tailwind's md breakpoint: phones get the static grid aesthetic,
+// desktops get the full WebGL snowfall.
+const DESKTOP_QUERY = "(min-width: 768px)";
+
+function isDesktopViewport(): boolean {
+  if (typeof window === "undefined") return true;
+  return window.matchMedia(DESKTOP_QUERY).matches;
+}
 
 /**
- * Full-viewport pixel-snow layer. Mounted once in the root layout behind
- * all content (fixed, negative z-index, no pointer events) so it never
- * blocks clicks or scrolling. Flake tint follows the active theme and the
- * layer unmounts entirely when the user prefers reduced motion.
+ * Full-viewport pixel-snow layer (desktop only). Mounted once in the root
+ * layout behind all content (fixed, negative z-index, no pointer events)
+ * so it never blocks clicks or scrolling. Flake tint follows the active
+ * theme and the layer unmounts entirely on mobile viewports or when the
+ * user prefers reduced motion.
  */
 function prefersReducedMotion(): boolean {
   if (typeof window === "undefined") return false;
@@ -18,25 +32,32 @@ function prefersReducedMotion(): boolean {
 export function SnowBackground() {
   const { theme } = useTheme();
   const [reducedMotion, setReducedMotion] = useState(prefersReducedMotion);
+  const [desktop, setDesktop] = useState(isDesktopViewport);
   const [enabled, setEnabled] = useState(true);
 
   useEffect(() => {
-    const query = window.matchMedia("(prefers-reduced-motion: reduce)");
-    const onChange = (event: MediaQueryListEvent) => {
+    const motionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const onMotionChange = (event: MediaQueryListEvent) => {
       setReducedMotion(event.matches);
+    };
+    const viewportQuery = window.matchMedia(DESKTOP_QUERY);
+    const onViewportChange = (event: MediaQueryListEvent) => {
+      setDesktop(event.matches);
     };
     const onToggle = () => {
       setEnabled((was) => !was);
     };
-    query.addEventListener("change", onChange);
+    motionQuery.addEventListener("change", onMotionChange);
+    viewportQuery.addEventListener("change", onViewportChange);
     window.addEventListener("snow:toggle", onToggle);
     return () => {
-      query.removeEventListener("change", onChange);
+      motionQuery.removeEventListener("change", onMotionChange);
+      viewportQuery.removeEventListener("change", onViewportChange);
       window.removeEventListener("snow:toggle", onToggle);
     };
   }, []);
 
-  if (reducedMotion || !enabled) return null;
+  if (reducedMotion || !enabled || !desktop) return null;
 
   const isLight = theme === "light";
 
