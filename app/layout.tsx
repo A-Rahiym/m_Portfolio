@@ -33,7 +33,19 @@ export default async function RootLayout({
   const messages = await getMessages();
 
   return (
-    <html lang="en" className={`${ibmPlexSans.variable} ${vt323.variable} dark`}>
+    <html
+      lang="en"
+      data-theme="dark"
+      suppressHydrationWarning
+      className={`${ibmPlexSans.variable} ${vt323.variable}`}
+    >
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{var t=localStorage.getItem("theme")||"dark";document.documentElement.dataset.theme=t;}catch(e){document.documentElement.dataset.theme="dark";}})();`,
+          }}
+        />
+      </head>
       <body className="h-screen flex flex-col md:flex-row overflow-hidden pixel-grid font-sans">
         <NextIntlClientProvider messages={messages}>
           <Providers>
