@@ -43,9 +43,9 @@
       {"label": "AI Coding Tools", "skills": ["GitHub Copilot", "Cursor"]},
       {"label": "AI / ML", "skills": ["PyTorch", "Hugging Face", "Python"]},
       {"label": "Frontend & Mobile", "skills": ["React", "React Native", "Next.js", "Vue.js", "TypeScript", "JavaScript", "Tailwind CSS", "HTML", "CSS", "Redux", "Expo", "Three.js"]},
-      {"label": "Backend", "skills": ["Express.js", "PHP", "Firebase"]},
+      {"label": "Backend", "skills": ["Express.js", "FastAPI", "PHP", "Firebase"]},
       {"label": "Design", "skills": ["Figma", "Adobe Suite"]},
-      {"label": "Workflow", "skills": ["Git"]}
+      {"label": "Workflow", "skills": ["Git", "Docker"]}
     ],
     "selectedWork": "Selected Work",
     "contactHeading": "Get in touch",

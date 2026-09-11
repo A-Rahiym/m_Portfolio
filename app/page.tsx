@@ -5,7 +5,7 @@ import { projects } from "@/src/data/projects";
 
 export default async function HomePage() {
   const t = await getTranslations("home");
-  const recentProjects = projects.slice(-3).reverse();
+  const recentProjects = projects.slice(0, 3);
   return (
     <main className="grow md:ml-70 mt-16 md:mt-0 p-6 overflow-y-auto h-full">
       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-12 xl:grid-rows-4 gap-6 w-full h-full">
