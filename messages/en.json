@@ -166,7 +166,26 @@
     "snowToggled": "SNOW TOGGLED",
     "cmdHelp": "help",
     "cmdHelpDesc": "List every command",
-    "helpFeedback": "10 COMMANDS LOADED — CLEAR THE INPUT TO SEE ALL",
+    "helpFeedback": "12 COMMANDS LOADED — CLEAR THE INPUT TO SEE ALL",
+    "cmdResume": "resume",
+    "cmdResumeDesc": "Printable CV",
+    "cmdAchievements": "achievements",
+    "cmdAchievementsDesc": "Show unlocked badges",
+    "achUnlocked": "Achievement unlocked",
+    "achNone": "NO BADGES YET — EXPLORE TO EARN",
+    "achList": "{count}/{total} UNLOCKED — {names}",
+    "achFirstBoot": "FIRST_BOOT",
+    "achFirstBootDesc": "Survived the boot sequence",
+    "achOperator": "OPERATOR",
+    "achOperatorDesc": "Opened the command bar",
+    "achExplorer": "EXPLORER",
+    "achExplorerDesc": "Visited every page",
+    "achThemeFlipper": "THEME_FLIPPER",
+    "achThemeFlipperDesc": "Switched themes",
+    "achBlizzardMaker": "BLIZZARD_MAKER",
+    "achBlizzardMakerDesc": "Toggled the snow",
+    "achContactMade": "CONTACT_MADE",
+    "achContactMadeDesc": "Copied the email",
     "bootTitleBar": "ROOT_ACCESS // SECURE BOOT",
     "bootEnter": "PRESS ANY KEY TO ENTER",
     "bootLines": [
@@ -176,5 +195,12 @@
       "snow field: ONLINE — OK",
       "mounting dashboard..."
     ]
+  },
+  "resume": {
+    "print": "Print",
+    "back": "Home",
+    "experience": "Experience",
+    "skills": "Skills",
+    "education": "Education"
   }
 }

@@ -195,6 +195,38 @@ body {
   animation: pixel-block-out 250ms steps(2, end) forwards;
 }
 
+@media print {
+  /* Chrome: sidebar, snow, boot, command bar, toasts, floating button. */
+  nav,
+  header,
+  .fixed,
+  .no-print {
+    display: none !important;
+  }
+  body {
+    background: #fff !important;
+    color: #000 !important;
+    display: block !important;
+    height: auto !important;
+    overflow: visible !important;
+  }
+  main {
+    margin: 0 !important;
+    height: auto !important;
+    overflow: visible !important;
+    padding: 0 !important;
+  }
+  /* Ink-on-white sheet regardless of active theme. */
+  .print-clean,
+  .print-clean * {
+    background: #fff !important;
+    color: #000 !important;
+    border-color: #000 !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+}
+
 .pixel-snow-container {
   width: 100%;
   height: 100%;

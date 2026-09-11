@@ -1,4 +1,5 @@
 import type { Theme } from "@/src/app/providers";
+import { ACHIEVEMENTS, getUnlocked } from "@/src/features/achievements/achievements";
 
 export interface TerminalCommand {
   id: string;
@@ -9,7 +10,7 @@ export interface TerminalCommand {
 }
 
 interface CommandDeps {
-  t: (key: string) => string;
+  t: (key: string, values?: Record<string, string | number>) => string;
   navigate: (href: string) => void;
   theme: Theme;
   toggleTheme: () => void;
@@ -69,7 +70,11 @@ export function buildCommands({
       name: t("cmdCopyEmail"),
       desc: t("cmdCopyEmailDesc"),
       keywords: "mail address clipboard",
-      run: async () => ((await copyText(email)) ? t("emailCopied") : t("emailFailed")),
+      run: async () => {
+        const ok = await copyText(email);
+        if (ok) window.dispatchEvent(new CustomEvent("email:copied"));
+        return ok ? t("emailCopied") : t("emailFailed");
+      },
     },
     {
       id: "snow",
@@ -82,5 +87,20 @@ export function buildCommands({
       },
     },
     { id: "help", name: t("cmdHelp"), desc: t("cmdHelpDesc"), keywords: "list all commands", run: () => t("helpFeedback") },
+    { id: "resume", name: t("cmdResume"), desc: t("cmdResumeDesc"), keywords: "cv print pdf download", run: go("/resume") },
+    {
+      id: "achievements",
+      name: t("cmdAchievements"),
+      desc: t("cmdAchievementsDesc"),
+      keywords: "badges trophies unlocked",
+      run: () => {
+        const unlocked = getUnlocked();
+        if (unlocked.length === 0) return t("achNone");
+        const names = ACHIEVEMENTS.filter((a) => unlocked.includes(a.id))
+          .map((a) => t(a.nameKey))
+          .join(" · ");
+        return t("achList", { count: unlocked.length, total: ACHIEVEMENTS.length, names });
+      },
+    },
   ];
 }
