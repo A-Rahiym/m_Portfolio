@@ -1,5 +1,6 @@
 import { PixelIcon } from "@/src/components/icons/PixelIcon";
-import { shadowColors } from "@/src/data/shadowColors";
+import { getShadowColor } from "@/src/data/shadowColors";
+import { useTheme } from "@/src/app/providers";
 import type { Project } from "@/src/data/projects";
 
 interface ProjectCardProps {
@@ -7,8 +8,9 @@ interface ProjectCardProps {
 }
 
 export function ProjectCard({ project }: ProjectCardProps) {
-  const idx = project.id.length % shadowColors.length;
-  const shadowColor = shadowColors[idx];
+  const { theme } = useTheme();
+  const idx = project.id.length % 8;
+  const shadowColor = getShadowColor(idx, theme);
 
   return (
     <div className="relative group cursor-pointer">
@@ -39,7 +41,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
               <PixelIcon name={project.icon} size={16} />
             </div>
           </div>
-          <h3 className="font-headline-lg text-headline-lg text-white mb-2 tracking-tight">
+          <h3 className="font-headline-lg text-headline-lg text-on-surface mb-2 tracking-tight">
             {project.title}
           </h3>
           <p className="font-body-md text-body-md text-terminal-gray mb-4 md:mb-6 leading-[1.8] flex-1 line-clamp-3 lg:line-clamp-none">

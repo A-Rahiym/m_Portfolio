@@ -1,16 +1,7 @@
 import Link from "next/link";
 import type { BlogPost } from "@/src/entities/blog/types";
-
-const shadowColors = [
-  "#32E6E2",
-  "#5A8CFF",
-  "#FF6B6B",
-  "#FFD93D",
-  "#C084FC",
-  "#F97316",
-  "#2DD4BF",
-  "#FB923C",
-];
+import { getShadowColor } from "@/src/data/shadowColors";
+import { useTheme } from "@/src/app/providers";
 
 interface BlogCardProps {
   post: BlogPost;
@@ -18,7 +9,8 @@ interface BlogCardProps {
 }
 
 export function BlogCard({ post, index }: BlogCardProps) {
-  const color = shadowColors[index % shadowColors.length];
+  const { theme } = useTheme();
+  const color = getShadowColor(index, theme);
 
   return (
     <article className="group relative press-down">
