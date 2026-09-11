@@ -1,22 +1,74 @@
 @import "tailwindcss";
 
+/* Theme values: dark defaults, light overrides.
+   Utilities (bg-surface, text-primary, ...) resolve via var() so
+   toggling [data-theme] on <html> flips the whole UI without FOUC. */
+:root,
+[data-theme="dark"] {
+  color-scheme: dark;
+  --theme-bg: #07090D;
+  --theme-surface: #0E121A;
+  --theme-surface-dim: #111318;
+  --theme-surface-container: #1d2024;
+  --theme-surface-container-high: #282a2f;
+  --theme-surface-container-lowest: #0c0e12;
+  --theme-surface-elevated: #141A24;
+  --theme-elevated: #141A24;
+  --theme-border-main: #2A2F3A;
+  --theme-terminal-gray: #888D96;
+  --theme-primary: #32E6E2;
+  --theme-primary-container: #32E6E2;
+  --theme-on-primary-container: #003D3D;
+  --theme-on-surface: #e2e2e8;
+  --theme-on-surface-variant: #c1cab5;
+  --theme-nav-active: #2DD4BF;
+  --theme-grid-stroke: #4a5260;
+  --theme-pixel-stroke: #1d2024;
+  --theme-scrollbar-track: #0E121A;
+  --theme-scrollbar-thumb: #32E6E2;
+}
+
+[data-theme="light"] {
+  color-scheme: light;
+  --theme-bg: #F5F2EB;
+  --theme-surface: #FFFFFF;
+  --theme-surface-dim: #EDE9DF;
+  --theme-surface-container: #F0ECE1;
+  --theme-surface-container-high: #E2DDCF;
+  --theme-surface-container-lowest: #FBF9F4;
+  --theme-surface-elevated: #FFFFFF;
+  --theme-elevated: #FFFFFF;
+  --theme-border-main: #141414;
+  --theme-terminal-gray: #5B6270;
+  --theme-primary: #2B4EFF;
+  --theme-primary-container: #2B4EFF;
+  --theme-on-primary-container: #FFFFFF;
+  --theme-on-surface: #14171C;
+  --theme-on-surface-variant: #3E4552;
+  --theme-nav-active: #2B4EFF;
+  --theme-grid-stroke: #D8D2C2;
+  --theme-pixel-stroke: #E7E1D3;
+  --theme-scrollbar-track: #EDE9DF;
+  --theme-scrollbar-thumb: #2B4EFF;
+}
+
 @theme inline {
-  --color-bg: #07090D;
-  --color-surface: #0E121A;
-  --color-surface-dim: #111318;
-  --color-surface-container: #1d2024;
-  --color-surface-container-high: #282a2f;
-  --color-surface-container-lowest: #0c0e12;
-  --color-surface-elevated: #141A24;
-  --color-elevated: #141A24;
-  --color-border-main: #2A2F3A;
-  --color-terminal-gray: #888D96;
-  --color-primary: #32E6E2;
-  --color-primary-container: #32E6E2;
-  --color-on-primary-container: #003D3D;
-  --color-on-surface: #e2e2e8;
-  --color-on-surface-variant: #c1cab5;
-  --color-nav-active: #2DD4BF;
+  --color-bg: var(--theme-bg);
+  --color-surface: var(--theme-surface);
+  --color-surface-dim: var(--theme-surface-dim);
+  --color-surface-container: var(--theme-surface-container);
+  --color-surface-container-high: var(--theme-surface-container-high);
+  --color-surface-container-lowest: var(--theme-surface-container-lowest);
+  --color-surface-elevated: var(--theme-surface-elevated);
+  --color-elevated: var(--theme-elevated);
+  --color-border-main: var(--theme-border-main);
+  --color-terminal-gray: var(--theme-terminal-gray);
+  --color-primary: var(--theme-primary);
+  --color-primary-container: var(--theme-primary-container);
+  --color-on-primary-container: var(--theme-on-primary-container);
+  --color-on-surface: var(--theme-on-surface);
+  --color-on-surface-variant: var(--theme-on-surface-variant);
+  --color-nav-active: var(--theme-nav-active);
   --font-headline-xl: "VT323", monospace;
   --font-headline-lg: "VT323", monospace;
   --font-code-sm: "IBM Plex Sans", sans-serif;
@@ -68,15 +120,24 @@
 }
 
 body {
-  background-color: #07090D;
+  background-color: var(--theme-bg);
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40'%3E%3Cpath d='M 40 0 L 0 0 0 40' fill='none' stroke='%234a5260' stroke-width='1'/%3E%3C/svg%3E");
-  color: #e2e2e8;
+  color: var(--theme-on-surface);
   font-family: "IBM Plex Sans", sans-serif;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+[data-theme="light"] body {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40'%3E%3Cpath d='M 40 0 L 0 0 0 40' fill='none' stroke='%23D8D2C2' stroke-width='1'/%3E%3C/svg%3E");
 }
 
 .pixel-grid {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32'%3E%3Cpath d='M 32 0 L 0 0 0 32' fill='none' stroke='%231d2024' stroke-width='1'/%3E%3C/svg%3E");
   background-size: 32px 32px;
+}
+
+[data-theme="light"] .pixel-grid {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32'%3E%3Cpath d='M 32 0 L 0 0 0 32' fill='none' stroke='%23E7E1D3' stroke-width='1'/%3E%3C/svg%3E");
 }
 
 .press-down:active {
@@ -88,10 +149,10 @@ body {
   width: 4px;
 }
 .custom-scroll::-webkit-scrollbar-track {
-  background: #0E121A;
+  background: var(--theme-scrollbar-track);
 }
 .custom-scroll::-webkit-scrollbar-thumb {
-  background: #32E6E2;
+  background: var(--theme-scrollbar-thumb);
 }
 
 .brutalist-card {
