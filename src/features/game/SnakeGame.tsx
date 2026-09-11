@@ -33,6 +33,28 @@ export function SnakeGame() {
     foodRef.current = newFood;
   }, []);
 
+  const getBoardColors = useCallback(() => {
+    const theme =
+      typeof document !== "undefined"
+        ? document.documentElement.dataset.theme
+        : "dark";
+    return theme === "light"
+      ? {
+          bg: "#FBF9F4",
+          grid: "#E7E1D3",
+          food: "#14171C",
+          head: "#2B4EFF",
+          body: "#7A90FF",
+        }
+      : {
+          bg: "#0c0e12",
+          grid: "#1d2024",
+          food: "#FFFFFF",
+          head: "#32E6E2",
+          body: "#7cb852",
+        };
+  }, []);
+
   const draw = useCallback(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
@@ -40,11 +62,12 @@ export function SnakeGame() {
     if (!ctx) return;
 
     const cellSize = canvas.width / GRID_SIZE;
+    const colors = getBoardColors();
 
-    ctx.fillStyle = "#0c0e12";
+    ctx.fillStyle = colors.bg;
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-    ctx.strokeStyle = "#1d2024";
+    ctx.strokeStyle = colors.grid;
     ctx.lineWidth = 1;
     for (let i = 0; i <= GRID_SIZE; i++) {
       ctx.beginPath();
@@ -57,9 +80,9 @@ export function SnakeGame() {
       ctx.stroke();
     }
 
-    ctx.fillStyle = "#FFFFFF";
+    ctx.fillStyle = colors.food;
     ctx.shadowBlur = 10;
-    ctx.shadowColor = "#FFFFFF";
+    ctx.shadowColor = colors.food;
     ctx.fillRect(
       foodRef.current.x * cellSize + 2,
       foodRef.current.y * cellSize + 2,
@@ -69,7 +92,7 @@ export function SnakeGame() {
     ctx.shadowBlur = 0;
 
     snakeRef.current.forEach((part, index) => {
-      ctx.fillStyle = index === 0 ? "#32E6E2" : "#7cb852";
+      ctx.fillStyle = index === 0 ? colors.head : colors.body;
       ctx.fillRect(
         part.x * cellSize + 1,
         part.y * cellSize + 1,
@@ -77,7 +100,7 @@ export function SnakeGame() {
         cellSize - 2
       );
     });
-  }, []);
+  }, [getBoardColors]);
 
   const move = useCallback(() => {
     const head = {
@@ -158,10 +181,13 @@ export function SnakeGame() {
   useEffect(() => {
     resizeCanvas();
     window.addEventListener("resize", resizeCanvas);
+    const redraw = () => draw();
+    window.addEventListener("themechange", redraw);
     draw();
 
     return () => {
       window.removeEventListener("resize", resizeCanvas);
+      window.removeEventListener("themechange", redraw);
       if (gameLoopRef.current) clearInterval(gameLoopRef.current);
     };
   }, [resizeCanvas, draw]);
@@ -204,7 +230,7 @@ export function SnakeGame() {
 
       {/* Game Overlay */}
       {gameState !== "playing" && (
-        <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/80 z-20">
+        <div className="absolute inset-0 flex flex-col items-center justify-center bg-surface-container-lowest/90 z-20">
           <div className="text-center p-8 border-2 border-primary bg-surface max-w-[80%]">
             <h3 className="font-headline-lg text-primary mb-4">
               {gameState === "over" ? "Game Over" : "Snake Game"}
@@ -217,13 +243,13 @@ export function SnakeGame() {
             {gameState === "idle" && (
               <div className="grid grid-cols-2 gap-4 mb-8 text-left max-w-xs mx-auto">
                 <div className="flex items-center gap-2">
-                  <span className="w-3 h-3 bg-[#32E6E2]" />
+                  <span className="w-3 h-3 bg-primary" />
                   <span className="font-label-mono text-[10px] text-terminal-gray">
                     Snake head
                   </span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <span className="w-3 h-3 bg-white" />
+                  <span className="w-3 h-3 bg-on-surface" />
                   <span className="font-label-mono text-[10px] text-terminal-gray">
                     Food
                   </span>
@@ -232,7 +258,7 @@ export function SnakeGame() {
             )}
             <button
               onClick={initGame}
-              className="bg-primary text-black px-8 py-3 font-label-mono text-label-mono border-2 border-black hover:bg-white transition-colors press-down w-full"
+              className="bg-primary text-on-primary-container px-8 py-3 font-label-mono text-label-mono border-2 border-black hover:brightness-110 transition-colors press-down w-full"
             >
               {gameState === "over" ? "Play Again" : "Start Game"}
             </button>
