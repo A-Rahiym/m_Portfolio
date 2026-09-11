@@ -15,7 +15,7 @@ export function Button({
     "px-6 py-3 font-label-mono text-label-mono border-2 border-black transition-colors press-down cursor-pointer";
 
   const variants = {
-    primary: "bg-primary-container text-on-primary-container hover:bg-white",
+    primary: "bg-primary-container text-on-primary-container hover:brightness-110",
     outline:
       "bg-surface border-2 border-primary text-primary hover:bg-primary hover:text-surface",
   };

@@ -60,7 +60,7 @@ export default async function ContactPage() {
             </button>
           </div>
         </form>
-        <div className="bg-black p-4 font-label-mono text-[10px] text-primary border-t-2 border-border-main shrink-0">
+        <div className="bg-surface-container-lowest p-4 font-label-mono text-[10px] text-primary border-t-2 border-border-main shrink-0">
           <div className="flex flex-col gap-1">
             <p className="opacity-80">&gt; Message ready to send</p>
             <p className="opacity-80">&gt; I'll respond within 24 hours</p>
@@ -118,7 +118,7 @@ export default async function ContactPage() {
           </div>
         </div>
         {/* Terminal */}
-        <div className="mt-auto border-t-2 border-border-main bg-black p-4 font-label-mono text-[10px] text-primary flex-1 flex items-end">
+        <div className="mt-auto border-t-2 border-border-main bg-surface-container-lowest p-4 font-label-mono text-[10px] text-primary flex-1 flex items-end">
           <div className="flex flex-col gap-1">
             <p>&gt; Message logged</p>
             <p>&gt; Status: open to work</p>

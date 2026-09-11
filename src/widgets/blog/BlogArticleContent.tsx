@@ -118,7 +118,7 @@ export function BlogArticleContent({ slug }: BlogArticleContentProps) {
                   className="w-full h-full bg-cover bg-center"
                   style={{ backgroundImage: `url(${post.imageUrl})` }}
                 />
-                <div className="absolute bottom-4 left-4 bg-black/80 px-3 py-1 border border-primary font-label-mono text-[10px] text-primary">
+                <div className="absolute bottom-4 left-4 bg-surface-container-lowest/90 px-3 py-1 border border-primary font-label-mono text-[10px] text-primary">
                   VISUAL_DATA_REP
                 </div>
               </div>

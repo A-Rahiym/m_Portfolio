@@ -45,7 +45,7 @@ export default async function AboutPage() {
               </div>
               <div className="flex items-center gap-2 border border-border-main px-4 py-2 bg-surface-elevated">
                 <PixelIcon name="external" size={12} className="text-primary" />
-                <span className="font-label-mono text-[10px] text-white">{t("stack")}</span>
+                <span className="font-label-mono text-[10px] text-on-surface">{t("stack")}</span>
               </div>
             </div>
           </div>
@@ -64,11 +64,11 @@ export default async function AboutPage() {
             </div>
             <div className="border-l-4 border-primary pl-4">
               <p className="font-label-mono text-[10px] text-terminal-gray">LOCATION</p>
-              <p className="font-label-mono text-label-mono text-white">{t("location")}</p>
+              <p className="font-label-mono text-label-mono text-on-surface">{t("location")}</p>
             </div>
             <div className="border-l-4 border-primary pl-4">
               <p className="font-label-mono text-[10px] text-terminal-gray">STACK</p>
-              <p className="font-label-mono text-label-mono text-white">{t("stack")}</p>
+              <p className="font-label-mono text-label-mono text-on-surface">{t("stack")}</p>
             </div>
           </div>
         </section>
@@ -85,7 +85,7 @@ export default async function AboutPage() {
                 <PixelIcon name="projects" size={16} className="text-primary" />
                 <span className="font-label-mono text-[10px] text-terminal-gray">MODULE_01</span>
               </div>
-              <h4 className="font-headline-lg-mobile text-headline-lg-mobile text-white mb-3">{t("compFrontendTitle")}</h4>
+              <h4 className="font-headline-lg-mobile text-headline-lg-mobile text-on-surface mb-3">{t("compFrontendTitle")}</h4>
               <p className="text-body-md text-sm text-on-surface-variant">{t("compFrontendDesc")}</p>
             </div>
             <div className="bg-surface-elevated border-2 border-border-main p-6 hover:border-primary transition-colors">
@@ -93,7 +93,7 @@ export default async function AboutPage() {
                 <PixelIcon name="projects" size={16} className="text-primary" />
                 <span className="font-label-mono text-[10px] text-terminal-gray">MODULE_02</span>
               </div>
-              <h4 className="font-headline-lg-mobile text-headline-lg-mobile text-white mb-3">{t("compAiTitle")}</h4>
+              <h4 className="font-headline-lg-mobile text-headline-lg-mobile text-on-surface mb-3">{t("compAiTitle")}</h4>
               <p className="text-body-md text-sm text-on-surface-variant">{t("compAiDesc")}</p>
             </div>
             <div className="bg-surface-elevated border-2 border-border-main p-6 hover:border-primary transition-colors">
@@ -101,7 +101,7 @@ export default async function AboutPage() {
                 <PixelIcon name="about" size={16} className="text-primary" />
                 <span className="font-label-mono text-[10px] text-terminal-gray">MODULE_03</span>
               </div>
-              <h4 className="font-headline-lg-mobile text-headline-lg-mobile text-white mb-3">{t("compDesignTitle")}</h4>
+              <h4 className="font-headline-lg-mobile text-headline-lg-mobile text-on-surface mb-3">{t("compDesignTitle")}</h4>
               <p className="text-body-md text-sm text-on-surface-variant">{t("compDesignDesc")}</p>
             </div>
             <div className="bg-surface-elevated border-2 border-border-main p-6 hover:border-primary transition-colors">
@@ -109,7 +109,7 @@ export default async function AboutPage() {
                 <PixelIcon name="home" size={16} className="text-primary" />
                 <span className="font-label-mono text-[10px] text-terminal-gray">MODULE_04</span>
               </div>
-              <h4 className="font-headline-lg-mobile text-headline-lg-mobile text-white mb-3">{t("compArchTitle")}</h4>
+              <h4 className="font-headline-lg-mobile text-headline-lg-mobile text-on-surface mb-3">{t("compArchTitle")}</h4>
               <p className="text-body-md text-sm text-on-surface-variant">{t("compArchDesc")}</p>
             </div>
           </div>
@@ -141,10 +141,10 @@ export default async function AboutPage() {
           <div className="p-6 flex flex-col gap-6 flex-1">
             <div className="bg-surface-elevated border-2 border-border-main p-6 relative">
               <div className="absolute top-4 right-4">
-                <span className="font-label-mono text-[10px] text-primary bg-black border border-primary px-3 py-1">PRESENT</span>
+                <span className="font-label-mono text-[10px] text-primary bg-surface-container-lowest border border-primary px-3 py-1">PRESENT</span>
               </div>
               <div className="mb-4">
-                <h4 className="font-headline-lg-mobile text-headline-lg-mobile text-white">{t("role1Title")}</h4>
+                <h4 className="font-headline-lg-mobile text-headline-lg-mobile text-on-surface">{t("role1Title")}</h4>
                 <p className="font-label-mono text-[10px] text-terminal-gray mt-1">{t("role1Subtitle")}</p>
               </div>
               <ul className="flex flex-col gap-3">
@@ -164,7 +164,7 @@ export default async function AboutPage() {
             </div>
             <div className="bg-surface-elevated border-2 border-border-main p-6">
               <div className="mb-4">
-                <h4 className="font-headline-lg-mobile text-headline-lg-mobile text-white">{t("role2Title")}</h4>
+                <h4 className="font-headline-lg-mobile text-headline-lg-mobile text-on-surface">{t("role2Title")}</h4>
                 <p className="font-label-mono text-[10px] text-terminal-gray mt-1">{t("role2Subtitle")}</p>
               </div>
               <ul className="flex flex-col gap-3">
@@ -192,9 +192,9 @@ export default async function AboutPage() {
             <span className="font-label-mono text-label-mono text-terminal-gray">EDUCATION_&_CREDENTIALS</span>
           </div>
           <div className="p-6 flex flex-col gap-6 flex-1 overflow-y-auto">
-            <div className="bg-black border-2 border-primary p-6">
+            <div className="bg-surface-container-lowest border-2 border-primary p-6">
               <h4 className="font-label-mono text-[10px] text-primary uppercase">{t("educationDegree")}</h4>
-              <p className="font-headline-lg-mobile text-headline-lg-mobile text-white mt-2">{t("educationSchool")}</p>
+              <p className="font-headline-lg-mobile text-headline-lg-mobile text-on-surface mt-2">{t("educationSchool")}</p>
               <p className="font-label-mono text-[10px] text-terminal-gray mt-1">{t("educationYear")}</p>
               <p className="text-body-md text-sm text-terminal-gray mt-3">{t("educationDesc")}</p>
             </div>
@@ -202,15 +202,15 @@ export default async function AboutPage() {
               <h4 className="font-label-mono text-[10px] text-terminal-gray mb-4 uppercase">{t("certifications")}</h4>
               <div className="flex flex-col gap-4">
                 <div className="border-l-4 border-primary pl-4">
-                  <p className="text-white font-bold text-sm">{t("cert1")}</p>
+                  <p className="text-on-surface font-bold text-sm">{t("cert1")}</p>
                   <p className="font-label-mono text-[8px] text-terminal-gray mt-0.5">{t("cert1Issuer")}</p>
                 </div>
                 <div className="border-l-4 border-primary pl-4">
-                  <p className="text-white font-bold text-sm">{t("cert2")}</p>
+                  <p className="text-on-surface font-bold text-sm">{t("cert2")}</p>
                   <p className="font-label-mono text-[8px] text-terminal-gray mt-0.5">{t("cert2Issuer")}</p>
                 </div>
                 <div className="border-l-4 border-primary pl-4">
-                  <p className="text-white font-bold text-sm">{t("cert3")}</p>
+                  <p className="text-on-surface font-bold text-sm">{t("cert3")}</p>
                   <p className="font-label-mono text-[8px] text-terminal-gray mt-0.5">{t("cert3Issuer")}</p>
                 </div>
               </div>

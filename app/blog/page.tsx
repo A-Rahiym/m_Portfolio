@@ -19,7 +19,7 @@ export default function BlogPage() {
 
         <div className="bg-surface border-2 border-border-main shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] p-12 flex flex-col items-center justify-center text-center gap-6">
           <div className="w-16 h-16 border-2 border-primary bg-surface-container flex items-center justify-center">
-            <PixelIcon name="blog" size={32} color="#32E6E2" />
+            <PixelIcon name="blog" size={32} className="text-primary" />
           </div>
           <h2 className="font-headline-lg text-headline-lg text-primary">COMING SOON</h2>
           <p className="font-body-md text-body-md text-on-surface-variant max-w-md">

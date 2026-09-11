@@ -32,7 +32,7 @@ export function FilterBar({
           className={`px-6 py-2 border-2 font-label-mono text-label-mono transition-colors ${
             active === f.id
               ? "border-primary bg-primary text-on-primary-container"
-              : "border-border-main hover:border-white text-terminal-gray hover:text-white"
+              : "border-border-main hover:border-primary text-terminal-gray hover:text-primary"
           }`}
         >
           {f.label}
