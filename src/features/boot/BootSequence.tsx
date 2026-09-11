@@ -104,7 +104,7 @@ export function BootSequence() {
 
   return (
     <div
-      className="fixed inset-0 z-[300] bg-bg flex items-center justify-center p-6 cursor-pointer"
+      className={`fixed inset-0 z-[300] flex items-center justify-center p-6 cursor-pointer ${leaving ? "bg-transparent" : "bg-bg"}`}
       aria-hidden="true"
     >
       {leaving && (
