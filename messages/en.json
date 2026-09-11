@@ -19,6 +19,8 @@
     "heroDescription": "Software Engineer with 3+ years of experience building responsive web and mobile applications, fine-tuning ML models, and integrating AI into production. I build scalable interfaces with React and React Native and work with transformer models for NLP and computer vision.",
     "requestSession": "Get in Touch",
     "portfolioZip": "View Projects",
+    "recentWork": "Recent Work",
+    "viewAll": "View all",
     "bioTitle": "About",
     "bioText": "I specialize in React and React Native development, building production applications across e-commerce, healthcare, and accessibility domains. I focus on intuitive user experiences and integrating modern APIs and AI-assisted features into production-ready applications.",
     "bioTagML": "React",

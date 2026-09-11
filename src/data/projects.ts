@@ -117,7 +117,48 @@ export const projects: Project[] = [
     status: "currently building",
     repo: "https://github.com/A-Rahiym",
   },
+  {
+    id: "fundi",
+    title: "Fundi",
+    category: "Services",
+    description:
+      "A marketplace connecting users with local service providers. Browse fundis, compare offerings, and get work done.",
+    tags: ["REACT", "MARKETPLACE"],
+    icon: "globe",
+    file: "FUNDI.WEB",
+    url: "https://fundi00.netlify.app/",
+    repo: "https://github.com/A-Rahiym/fundl",
+    type: ["web"],
+  },
+  {
+    id: "educard",
+    title: "Educard",
+    category: "Education",
+    description:
+      "A study and flashcard app with authentication. Log in, create decks, and revise efficiently.",
+    tags: ["REACT", "EDUCATION"],
+    icon: "document",
+    file: "EDUCARD.WEB",
+    url: "https://brain-storm-gold.vercel.app/login",
+    repo: "https://github.com/A-Rahiym/brainStorm",
+    type: ["web"],
+  },
+  {
+    id: "kitchen-alert",
+    title: "Kitchen Alert",
+    category: "Productivity",
+    description:
+      "A mobile alert and reminder app for kitchen tasks. Timers and notifications so nothing burns.",
+    tags: ["REACT NATIVE", "EXPO"],
+    icon: "navigation",
+    file: "KITCHEN.APK",
+    repo: "https://github.com/A-Rahiym/kitchen-alert",
+    type: ["mobile"],
+  },
 ];
+
+
+
 
 export const projectFilters = [
   { id: "all", label: "ALL" },
@@ -125,3 +166,4 @@ export const projectFilters = [
   { id: "mobile", label: "MOBILE" },
   { id: "ai", label: "AI" },
 ];
+
