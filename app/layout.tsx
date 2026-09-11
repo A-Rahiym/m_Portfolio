@@ -4,6 +4,8 @@ import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
 import { Sidebar } from "@/src/components/layout/Sidebar";
 import { SnowBackground } from "@/src/components/ui/SnowBackground";
+import { CommandBar } from "@/src/features/terminal/CommandBar";
+import { BootSequence } from "@/src/features/boot/BootSequence";
 import { FloatingContactButton } from "@/src/components/ui/FloatingContactButton";
 import { Providers } from "@/src/app/providers";
 import "./globals.css";
@@ -52,6 +54,8 @@ export default async function RootLayout({
           <Providers>
             <SnowBackground />
             <Sidebar />
+            <CommandBar />
+            <BootSequence />
             {children}
             <FloatingContactButton />
           </Providers>

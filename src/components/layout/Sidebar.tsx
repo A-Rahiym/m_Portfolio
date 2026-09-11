@@ -4,7 +4,6 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useTranslations } from "next-intl";
 import { NavItem } from "@/src/components/layout/NavItem";
-import { MobileMenu } from "@/src/components/layout/MobileMenu";
 import { UserProfile } from "@/src/components/layout/UserProfile";
 import { ThemeToggle } from "@/src/components/ui/ThemeToggle";
 
@@ -34,7 +33,14 @@ export function Sidebar() {
         </span>
         <div className="flex items-center gap-2">
           <ThemeToggle />
-          <MobileMenu navItems={navItems} isActive={isActive} />
+          <button
+            onClick={() => window.dispatchEvent(new CustomEvent("commandbar:open"))}
+            aria-label={t("terminal.openBar")}
+            title={t("terminal.openBar")}
+            className="inline-flex items-center justify-center w-9 h-9 bg-surface-elevated text-primary font-label-mono text-label-mono border-2 border-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] active:translate-x-[2px] active:translate-y-[2px] active:shadow-none transition-all cursor-pointer"
+          >
+            &gt;_
+          </button>
         </div>
       </header>
 
@@ -71,8 +77,15 @@ export function Sidebar() {
           ))}
         </div>
 
-        <div className="px-8 pb-4">
+        <div className="px-8 pb-4 flex flex-col gap-2">
           <ThemeToggle className="w-full justify-center" />
+          <button
+            onClick={() => window.dispatchEvent(new CustomEvent("commandbar:open"))}
+            className="inline-flex items-center justify-between w-full bg-surface-elevated text-terminal-gray hover:text-primary px-3 py-2 font-label-mono text-[10px] border-2 border-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] active:translate-x-[2px] active:translate-y-[2px] active:shadow-none transition-all cursor-pointer"
+          >
+            <span>{t("terminal.openBar")}</span>
+            <span className="border border-border-main px-1.5 py-0.5">CTRL+K</span>
+          </button>
         </div>
         <UserProfile />
       </nav>

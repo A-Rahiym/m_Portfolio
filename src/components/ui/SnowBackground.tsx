@@ -18,17 +18,25 @@ function prefersReducedMotion(): boolean {
 export function SnowBackground() {
   const { theme } = useTheme();
   const [reducedMotion, setReducedMotion] = useState(prefersReducedMotion);
+  const [enabled, setEnabled] = useState(true);
 
   useEffect(() => {
     const query = window.matchMedia("(prefers-reduced-motion: reduce)");
     const onChange = (event: MediaQueryListEvent) => {
       setReducedMotion(event.matches);
     };
+    const onToggle = () => {
+      setEnabled((was) => !was);
+    };
     query.addEventListener("change", onChange);
-    return () => query.removeEventListener("change", onChange);
+    window.addEventListener("snow:toggle", onToggle);
+    return () => {
+      query.removeEventListener("change", onChange);
+      window.removeEventListener("snow:toggle", onToggle);
+    };
   }, []);
 
-  if (reducedMotion) return null;
+  if (reducedMotion || !enabled) return null;
 
   const isLight = theme === "light";
 
