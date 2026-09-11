@@ -2,8 +2,8 @@
   "site": {
     "title": "Abdulrahman Abdulrahim — Portfolio",
     "console": "Abdulrahman Abdulrahim",
-    "version": "Software Engineer (Frontend Focused)",
-    "tagline": "Software Engineer (Frontend Focused)",
+    "version": "Software Engineer (Mobile, Web — Frontend & Backend)",
+    "tagline": "Software Engineer (Mobile, Web — Frontend & Backend)",
     "description": "Software Engineer with 3+ years of experience. Frontend & AI focused."
   },
   "nav": {
@@ -14,8 +14,8 @@
     "contact": "Contact"
   },
   "home": {
-    "heroTitle": "Software Engineer (Frontend Focused)",
-    "heroTagline": "Software Engineer (Frontend Focused)",
+    "heroTitle": "Software Engineer (Mobile, Web — Frontend & Backend)",
+    "heroTagline": "Software Engineer (Mobile, Web — Frontend & Backend)",
     "heroDescription": "Software Engineer with 3+ years of experience building responsive web and mobile applications, fine-tuning ML models, and integrating AI into production. I build scalable interfaces with React and React Native and work with transformer models for NLP and computer vision.",
     "requestSession": "Get in Touch",
     "portfolioZip": "View Projects",
@@ -64,7 +64,7 @@
     "description": "Background, skills, and experience.",
     "bioData": "BIO_DATA_v1.0",
     "encrypted": "ENCRYPTED_LINK_ESTABLISHED",
-    "role": "Software Engineer (Frontend Focused)",
+    "role": "Software Engineer (Mobile, Web — Frontend & Backend)",
     "bioText": "Software Engineer — Frontend & AI focused. 3+ years of experience building responsive web and mobile applications using React and React Native, and fine-tuning transformer models for NLP and computer vision. Currently leading frontend development at DSHub.",
     "location": "Kaduna, Nigeria",
     "stack": "React / React Native / TypeScript",
