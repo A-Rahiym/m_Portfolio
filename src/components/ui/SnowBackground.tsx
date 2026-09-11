@@ -38,16 +38,16 @@ export function SnowBackground() {
       className="pointer-events-none fixed inset-0 -z-10"
     >
       <PixelSnow
-        color={isLight ? "#7A90FF" : "#ffffff"}
-        flakeSize={0.01}
+        color={isLight ? "#2B4EFF" : "#ffffff"}
+        flakeSize={isLight ? 0.025 : 0.01}
         minFlakeSize={1.25}
         pixelResolution={200}
         speed={1.2}
-        density={0.22}
+        density={isLight ? 0.25 : 0.22}
         direction={285}
-        brightness={isLight ? 1.1 : 1.3}
-        depthFade={8}
-        farPlane={20}
+        brightness={isLight ? 2.2 : 1.3}
+        depthFade={isLight ? 14 : 8}
+        farPlane={isLight ? 12 : 20}
         gamma={0.4545}
         variant="square"
       />
