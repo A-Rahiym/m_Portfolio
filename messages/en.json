@@ -16,13 +16,13 @@
   "home": {
     "heroTitle": "Software Engineer (Mobile, Web — Frontend & Backend)",
     "heroTagline": "Software Engineer (Mobile, Web — Frontend & Backend)",
-    "heroDescription": "Software Engineer with 3+ years of experience building responsive web and mobile applications, fine-tuning ML models, and integrating AI into production. I build scalable interfaces with React and React Native and work with transformer models for NLP and computer vision.",
+    "heroDescription": "Software Engineer with 3+ years of experience building responsive web and mobile applications, fine-tuning ML models, and integrating AI into production. I ship faster with AI-assisted workflows, build LLM-powered features with React and React Native, and work with transformer models for NLP and computer vision.",
     "requestSession": "Get in Touch",
     "portfolioZip": "View Projects",
     "recentWork": "Recent Work",
     "viewAll": "View all",
     "bioTitle": "About",
-    "bioText": "I specialize in React and React Native development, building production applications across e-commerce, healthcare, and accessibility domains. I focus on intuitive user experiences and integrating modern APIs and AI-assisted features into production-ready applications.",
+    "bioText": "I specialize in React and React Native development, building production applications across e-commerce, healthcare, and accessibility domains. I focus on intuitive user experiences, shipping LLM integrations and AI-assisted features into production-ready applications.",
     "bioTagML": "React",
     "bioTagDistributed": "React Native",
     "terminalBlog": "Latest Writing",
@@ -39,7 +39,14 @@
     "project2": "LifeGate Mobile",
     "project2Desc": "Cross-platform healthcare app connecting patients with professionals for consultations.",
     "proficiencyTitle": "Tool Proficiency",
-    "proficiencySkills": ["React", "React Native", "Tailwind CSS", "Vue.js", "TypeScript","Next.js","Expo","Firebase","Redux","Git","Adobe Suite","CSS","Python","GitHub Copilot","Cursor","PyTorch", "JavaScript", "HTML", "Figma", "Three.js"],
+    "proficiencyGroups": [
+      {"label": "AI Coding Tools", "skills": ["GitHub Copilot", "Cursor"]},
+      {"label": "AI / ML", "skills": ["PyTorch", "Hugging Face", "Python"]},
+      {"label": "Frontend & Mobile", "skills": ["React", "React Native", "Next.js", "Vue.js", "TypeScript", "JavaScript", "Tailwind CSS", "HTML", "CSS", "Redux", "Expo", "Three.js"]},
+      {"label": "Backend", "skills": ["Express.js", "PHP", "Firebase"]},
+      {"label": "Design", "skills": ["Figma", "Adobe Suite"]},
+      {"label": "Workflow", "skills": ["Git"]}
+    ],
     "selectedWork": "Selected Work",
     "contactHeading": "Get in touch",
     "contactEmail": "a.raheeem0001@gmail.com",
@@ -57,7 +64,7 @@
   },
   "blog": {
     "title": "Blog",
-    "description": "Notes on frontend engineering, mobile development, and accessibility."
+    "description": "Notes on frontend engineering, mobile development, accessibility, and building with AI tools."
   },
   "about": {
     "title": "System Bio",
@@ -65,7 +72,7 @@
     "bioData": "BIO_DATA_v1.0",
     "encrypted": "ENCRYPTED_LINK_ESTABLISHED",
     "role": "Software Engineer (Mobile, Web — Frontend & Backend)",
-    "bioText": "Software Engineer — Frontend & AI focused. 3+ years of experience building responsive web and mobile applications using React and React Native, and fine-tuning transformer models for NLP and computer vision. Currently leading frontend development at DSHub.",
+    "bioText": "Software Engineer — Frontend & AI focused. 3+ years of experience building responsive web and mobile applications using React and React Native, shipping LLM-powered features with AI-assisted workflows, and fine-tuning transformer models for NLP and computer vision. Currently leading frontend development at DSHub.",
     "location": "Kaduna, Nigeria",
     "stack": "React / React Native / TypeScript",
     "status": "Open to opportunities",
@@ -73,7 +80,7 @@
     "compFrontendTitle": "Frontend & Mobile",
     "compFrontendDesc": "Building production applications with React, React Native, Expo, and Tailwind CSS. Focused on component-driven architecture and cross-platform consistency.",
     "compAiTitle": "AI & Machine Learning",
-    "compAiDesc": "Fine-tuning transformer models (Whisper, DistilBERT) and building computer vision pipelines with PyTorch and YOLOv5.",
+    "compAiDesc": "Fine-tuning transformer models (Whisper, DistilBERT), building computer vision pipelines with PyTorch and YOLOv5, and shipping LLM-powered features with AI-assisted workflows (Copilot, Cursor).",
     "compDesignTitle": "Design Systems",
     "compDesignDesc": "Creating visual brand identities and UI component systems with Figma and Adobe Creative Suite.",
     "compArchTitle": "Architecture & Performance",

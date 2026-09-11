@@ -121,14 +121,19 @@ export default async function AboutPage() {
           <div className="h-6 bg-surface-container-high border-b-2 border-border-main flex items-center px-4 shrink-0">
             <span className="font-label-mono text-label-mono text-terminal-gray">TOOL_PROFICIENCY</span>
           </div>
-          <div className="p-4 md:p-6 flex flex-col justify-center flex-1">
-            <div className="flex flex-wrap gap-2">
-              {home.raw("proficiencySkills").map((skill: string) => (
-                <span key={skill} className="px-3 py-1.5 border border-border-main font-label-mono text-[11px] text-primary bg-surface-container hover:bg-primary hover:text-on-primary-container hover:border-primary transition-colors">
-                  {skill}
-                </span>
-              ))}
-            </div>
+          <div className="p-4 md:p-6 grid grid-cols-1 md:grid-cols-2 gap-5 flex-1">
+            {(home.raw("proficiencyGroups") as { label: string; skills: string[] }[]).map((group) => (
+              <div key={group.label}>
+                <p className="font-label-mono text-[10px] text-terminal-gray uppercase tracking-wider mb-2">{group.label}</p>
+                <div className="flex flex-wrap gap-2">
+                  {group.skills.map((skill) => (
+                    <span key={skill} className="px-3 py-1.5 border border-border-main font-label-mono text-[11px] text-primary bg-surface-container hover:bg-primary hover:text-on-primary-container hover:border-primary transition-colors">
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            ))}
           </div>
         </section>
       </BrutalistSection>

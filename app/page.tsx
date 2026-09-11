@@ -145,14 +145,19 @@ export default async function HomePage() {
             <div className="h-6 bg-surface-container-high border-b-2 border-border-main flex items-center px-4 shrink-0">
               <span className="font-label-mono text-label-mono text-terminal-gray">{t("proficiencyTitle")}</span>
             </div>
-            <div className="p-3 flex flex-col justify-center flex-1 min-h-0 overflow-y-auto custom-scroll">
-              <div className="flex flex-wrap gap-1.5">
-                {t.raw("proficiencySkills").map((skill: string) => (
-                  <span key={skill} className="px-2 py-1 border border-border-main font-label-mono text-[10px] text-primary bg-surface-container hover:bg-primary hover:text-on-primary-container hover:border-primary transition-colors">
-                    {skill}
-                  </span>
-                ))}
-              </div>
+            <div className="p-3 flex flex-col gap-3 flex-1 min-h-0 overflow-y-auto custom-scroll">
+              {(t.raw("proficiencyGroups") as { label: string; skills: string[] }[]).map((group) => (
+                <div key={group.label}>
+                  <p className="font-label-mono text-[9px] text-terminal-gray uppercase tracking-wider mb-1.5">{group.label}</p>
+                  <div className="flex flex-wrap gap-1.5">
+                    {group.skills.map((skill) => (
+                      <span key={skill} className="px-2 py-1 border border-border-main font-label-mono text-[10px] text-primary bg-surface-container hover:bg-primary hover:text-on-primary-container hover:border-primary transition-colors">
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              ))}
             </div>
           </section>
         </BrutalistSection>
